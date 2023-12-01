@@ -8,7 +8,7 @@
 <body>
 <form method="POST" th:object="${order}">
     <h1>Order your taco creations</h1>
-    <img th:src="@{/images/Tacos.webp}" style="max-width: 600px;" />
+    <img th:src="@{/images/Tacos.webp}" style="max-width: 200px;" />
     <a th:href="@{/design}" id="another">Design another taco</a><br />
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
@@ -19,35 +19,43 @@
     <h3>Deliver my taco masterpieces to...</h3>
     <label for="name">Name: </label>
     <input type="text" id="name" th:field="*{name}" />
+    <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name is required</span>
     <br />
 
     <label for="street">Street address: </label>
     <input type="text" id="street" th:field="*{street}" />
+    <span class="validationError" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">The street input is wrong</span>
     <br />
 
     <label for="city">City: </label>
     <input type="text" id="city" th:field="*{city}" />
+    <span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">The city is wrong</span>
     <br />
 
     <label for="state">State: </label>
     <input type="text" id="state" th:field="*{state}" />
+    <span class="validationError" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">The state is wrong</span>
     <br />
 
     <label for="zip">Zip code: </label>
     <input type="text" id="zip" th:field="*{zip}" />
+    <span class="validationError" th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}">The zip code is incorrect</span>
     <br />
 
     <h3>Here's how I'll pay...</h3>
     <label for="number">Credit Card #: </label>
     <input type="text" id="number" th:field="*{number}" />
+    <span class="validationError" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">The number code is incorrect</span>
     <br />
 
     <label for="ccExpiration">Expiration: </label>
     <input type="text" id="ccExpiration" th:field="*{ccExpiration}" />
+    <span class="validationError" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}">The Expiration date is incorrect</span>
     <br />
 
     <label for="ccCvv">CVV: </label>
     <input type="text" id="ccCvv" th:field="*{ccCvv}" />
+    <span class="validationError" th:if="${#fields.hasErrors('ccCvv')}" th:errors="*{ccCvv}">The CVV is incorrect</span>
     <br />
 
     <input type="submit" value="Submit order" />
