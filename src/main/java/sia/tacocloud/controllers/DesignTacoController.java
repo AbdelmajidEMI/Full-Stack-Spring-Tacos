@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
+import sia.tacocloud.modules.Design;
 import sia.tacocloud.modules.Ingredient;
 import sia.tacocloud.modules.Ingredient.Type;
 import sia.tacocloud.modules.Taco;
@@ -46,7 +47,7 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processDesign(Taco design) {
+    public String processDesign(Design design) {
         // Save the taco design...
         // We'll do this in chapter 3
         log.info("Processing design: " + design);
