@@ -6,8 +6,18 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 public class Order {
+    private Long id;
+    private Date placedAt;
+    private Set<Taco> tacos = new HashSet<>();
+
+
+
     @NotBlank(message="Name is required")
     private String name;
     @NotBlank(message="Street is required")
@@ -24,4 +34,10 @@ public class Order {
     private String ccExpiration;
     @Digits(integer=3, fraction = 0, message = "Invalid CVV")
     private String ccCvv;
+
+
+    public void addDesign(Taco design) {
+        this.tacos.add(design);
+    }
+
 }
