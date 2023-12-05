@@ -12,13 +12,14 @@ import org.springframework.validation.Errors;
 
 import org.springframework.web.bind.annotation.*;
 import sia.tacocloud.DAO.ingredientRepo.IngredientRepository;
+import sia.tacocloud.DAO.ingredientRepo.JPAIngredientRepository;
+import sia.tacocloud.DAO.tacoRepo.JPATacoRepository;
 import sia.tacocloud.DAO.tacoRepo.TacoRepository;
 import sia.tacocloud.modules.Ingredient;
 import sia.tacocloud.modules.Ingredient.Type;
 import sia.tacocloud.modules.Taco;
 import sia.tacocloud.modules.Order;
-
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 
 @Controller
@@ -26,17 +27,17 @@ import javax.validation.Valid;
 @SessionAttributes("order")
 public class DesignTacoController {
     List<Ingredient> ingredients = new ArrayList<>();
-    private final IngredientRepository ingredientRepo;
+    private final JPAIngredientRepository ingredientRepo;
 
     private Type[] types;
 
-    private TacoRepository designRepo;
+    private JPATacoRepository designRepo;
 
 
     @Autowired
     public DesignTacoController(
-            IngredientRepository ingredientRepo,
-            TacoRepository designRepo) {
+            JPAIngredientRepository ingredientRepo,
+            JPATacoRepository designRepo) {
         this.ingredientRepo = ingredientRepo;
         this.designRepo = designRepo;
     }

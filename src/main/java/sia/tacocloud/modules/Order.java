@@ -6,14 +6,25 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.NotBlank;
 
+import jakarta.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
-public class Order {
+@Entity
+@Table(name = "Taco_Order")
+public class Order implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Date placedAt;
+
+    @ManyToMany(targetEntity = Taco.class)
     private Set<Taco> tacos = new HashSet<>();
 
 
@@ -38,6 +49,11 @@ public class Order {
 
     public void addDesign(Taco design) {
         this.tacos.add(design);
+    }
+
+    @PrePersist
+    void placeAt() {
+        this.placedAt = new Date();
     }
 
 }

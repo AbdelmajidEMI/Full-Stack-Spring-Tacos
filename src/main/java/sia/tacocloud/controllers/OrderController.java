@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import sia.tacocloud.DAO.orderRepo.JPAOrderRepository;
 import sia.tacocloud.DAO.orderRepo.OrderRepository;
 import sia.tacocloud.modules.Order;
 
@@ -21,9 +22,9 @@ import sia.tacocloud.modules.Order;
 @SessionAttributes("order")
 public class OrderController {
 
-    private final OrderRepository orderRepository;
+    private final JPAOrderRepository orderRepository;
 
-    public OrderController(OrderRepository orderRepository) {
+    public OrderController(JPAOrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 
