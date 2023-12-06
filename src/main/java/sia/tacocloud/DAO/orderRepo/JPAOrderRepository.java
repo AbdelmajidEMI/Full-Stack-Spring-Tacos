@@ -7,5 +7,5 @@ import java.util.Date;
 import java.util.List;
 
 public interface JPAOrderRepository extends CrudRepository<Order, Long> {
-    List<Order> readOrdersByZipAndPlacedAtBetween(String zip, Date startDate, Date endDate);
+
 }

@@ -13,3 +13,4 @@ insert into Ingredient (id, name, type) values ('CHED', 'Cheddar', 'CHEESE');
 insert into Ingredient (id, name, type) values ('JACK', 'Monterrey Jack', 'CHEESE');
 insert into Ingredient (id, name, type) values ('SLSA', 'Salsa', 'SAUCE');
 insert into Ingredient (id, name, type) values ('SRCR', 'Sour Cream', 'SAUCE');
+INSERT INTO users VALUES (1, 'Rabat', 'abdelmajid', '{bcrypt}$2a$10$KFAM7CSbNV8rzphXW6ypOO.pcBY0wWEKbIRWD.vGdv4ATUkxpQjza', '0623017881', 'Rabat', 'Agdal', 'user1', 10106);
